@@ -1,0 +1,16 @@
+from cryptography.fernet import Fernet
+key=Fernet.generate_key()
+# print(key)
+print(type(key))
+# passwd=open("x.key",'wb')
+# passwd.write(key)
+# passwd.close()
+f=Fernet(key)
+token=f.encrypt(b"i am vivek")
+# enmsg=open("encrypted.txt",'wb')
+# enmsg.write(token)
+# enmsg.close()
+print(token)
+
+c=f.decrypt(token)
+print(c)
